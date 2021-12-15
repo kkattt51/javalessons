@@ -32,7 +32,7 @@ class OrdArray {
 		}
 	}
 	
-	public void insert(long value) {
+	/*public void insert(long value) {
 		int j;
 		for (j = 0; j < nElems; j++) 
 			if (a[j] > value) 
@@ -41,6 +41,26 @@ class OrdArray {
 			a[k] = a[k - 1];
 		a[j] = value;
 		nElems++;
+	}*/
+	
+	public void insert(long value) {
+		int lowerBound = 0;
+	    int upperBound = nElems;
+	    int curIn;
+	    while(lowerBound < upperBound) {
+	        curIn = (lowerBound + upperBound) / 2;
+	        if(a[curIn] > value) {
+	            upperBound = curIn;
+	        } else {
+	            lowerBound = curIn + 1;
+	        }
+	    }
+	    
+	    for(int k = nElems; k > lowerBound; k--) {
+	        a[k] = a[k - 1];
+	    }
+	    a[lowerBound] = value;
+	    nElems++;
 	}
 	
 	public boolean delete(long value) {
@@ -93,6 +113,9 @@ public class OrderedApp {
 		arr.delete(55);
 		arr.delete(99);
 		
+		arr.display();
+		
+		arr.insert(69);
 		arr.display();
 	}
 
