@@ -47,7 +47,16 @@ class HighArray {
 	}
 	
 	public void noDups() {
-		
+		for (int i = 0; i < nElems; i++) {
+			for (int j = i + 1; j < nElems; j++) {
+                if(a[i] == a[j]){
+                    a[j] = 111;
+                    delete(a[j]);
+                }
+            }
+			System.out.print(a[i] + " ");
+		}
+		System.out.println("");
 	}
 }
 
@@ -61,15 +70,19 @@ public class HighArrayApp {
 		arr.insert(77);
 		arr.insert(99);
 		arr.insert(44);
+		arr.insert(17);
 		arr.insert(55);
 		arr.insert(22);
 		arr.insert(88);
+		arr.insert(17);
 		arr.insert(11);
 		arr.insert(00);
+		arr.insert(17);
 		arr.insert(66);
 		arr.insert(33);
 		
 		arr.display();
+		arr.noDups();
 		
 		int searchKey = 35;
 		if (arr.find(searchKey)) 
