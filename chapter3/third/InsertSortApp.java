@@ -100,12 +100,15 @@ public class InsertSortApp {
 		arr.insert(33);
 		
 		arr.display();
-		arr.noDups();
-		//arr.display();
-		arr.median();
 		
+		arr.noDups();
+		
+		System.out.println("Sorted array: ");
 		arr.insertionSort();
 		arr.display();
+		
+		arr.median();
+		
 	}
 
 }

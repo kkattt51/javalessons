@@ -26,21 +26,36 @@ class ArrayBub {
 			System.out.print(a[j] + " ");
 		System.out.println("");
 	}
-	
 	public void bubbleSort() {
-		int out, in, left;
+		int right = nElems - 1;
+		int left = 0;
 		
-		for (out = nElems - 1; out > 1; out--) 
-			for (in = 0; in < out; in++) 
-				if (a[in] > a[in + 1]) 
-					swap(in, in + 1);	
-				
-		/*for (left = 0; left < nElems - 1; left++) 
-			//for (in = 0; in < nElems - left - 1; in++)
-			for(in = nElems - 1; in > left - 1; in--)
-				if (a[in] < a[in + 1]) 
-					swap(in + 1, in);*/
+		do {
+			for (int in = left; in < right; in++) {	
+				if (a[in] > a[in + 1]) {
+					swap(in, in + 1);
+				}
+			}
+			right--;
+			for (int in = right; in > left; in--) {
+				if (a[in] < a[in - 1]) {
+					swap(in, in - 1);
+				}
+			}
+			left++;
+		} while (right > left);
 	}
+	
+	/*
+	 * public void bubbleSort() { int out, in, left;
+	 * 
+	 * for (out = nElems - 1; out > 1; out--) for (in = 0; in < out; in++) if (a[in]
+	 * > a[in + 1]) swap(in, in + 1);
+	 * 
+	 * for (left = 0; left < nElems - 1; left++) //for (in = 0; in < nElems - left -
+	 * 1; in++) for(in = nElems - 1; in > left - 1; in--) if (a[in] < a[in + 1])
+	 * swap(in + 1, in); }
+	 */
 	
 	private void swap(int one, int two) {
 		long temp = a[one];
