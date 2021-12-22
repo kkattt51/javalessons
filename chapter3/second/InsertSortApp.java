@@ -1,4 +1,5 @@
 package chapter3.second;
+
 class ArrayIns {
 	private long[] a;
 	private int nElems;
@@ -32,6 +33,20 @@ class ArrayIns {
 			a[in] = temp;
 		}
 	}
+	
+	public void median() {
+		insertionSort();
+		double med;
+		
+		if (nElems % 2 == 0) {
+		    med = ((double)a[nElems / 2] + (double)a[nElems/2 - 1]) / 2;
+		    System.out.println(med);
+		} else {
+			med = (double)a[nElems / 2];
+			System.out.println(med);
+		}
+		  
+	}
 }
 
 public class InsertSortApp {
@@ -53,6 +68,7 @@ public class InsertSortApp {
 		arr.insert(33);
 		
 		arr.display();
+		arr.median();
 		
 		arr.insertionSort();
 		arr.display();

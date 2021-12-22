@@ -35,11 +35,11 @@ class ArrayBub {
 				if (a[in] > a[in + 1]) 
 					swap(in, in + 1);	
 				
-		for (left = 0; left < nElems - 1; left++) 
+		/*for (left = 0; left < nElems - 1; left++) 
 			//for (in = 0; in < nElems - left - 1; in++)
 			for(in = nElems - 1; in > left - 1; in--)
 				if (a[in] < a[in + 1]) 
-					swap(in + 1, in);
+					swap(in + 1, in);*/
 	}
 	
 	private void swap(int one, int two) {
