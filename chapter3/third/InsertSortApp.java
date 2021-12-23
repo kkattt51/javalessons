@@ -34,37 +34,27 @@ class ArrayIns {
 		}
 	}
 	
-	public boolean delete(long value) {
-		int j;
-		for (j = 0; j < nElems; j++) 
-			if (a[j] == value) 
-				break;
-		if (j == nElems)
-			return false;
-		else {
-			for (int k = j; k < nElems; k++) 
-				a[k] = a[k + 1];
-			nElems--;
-			return true;
-		}
-	}
-	
 	public void noDups() {
-		System.out.println("Array without dups: ");
-		for (int i = 0; i < nElems; i++) {
-			for (int j = i + 1; j < nElems; j++) {
-                if(a[i] == a[j]){
-                    a[j] = 111;
-                    delete(a[j]);
-                }
-            }
-			System.out.print(a[i] + " ");
-		}
-		System.out.println("");
-	}
+		System.out.println("Array without duplicates: ");
+		int j = 0;
+		
+	    for (int i = 0; i < nElems - 1; i++) {
+	        if (a[i] != a[i + 1]) {
+	            a[j] = a[i];
+	            j++;
+	        }  
+	    }
+	    a[j++] = a[nElems - 1];
+	    
+	    for (int i = 0; i < j; i++) {
+	        System.out.print(a[i] + " "); 
+	    }
+	    System.out.println(""); 
+	  }
 	
 	public void median() {
-		insertionSort();
+		//insertionSort();
+		
 		double med;
 		
 		if (nElems % 2 == 0) {
@@ -94,6 +84,7 @@ public class InsertSortApp {
 		arr.insert(88);
 		arr.insert(17);
 		arr.insert(11);
+		arr.insert(11);
 		arr.insert(00);
 		arr.insert(66);
 		arr.insert(17);
@@ -101,14 +92,13 @@ public class InsertSortApp {
 		
 		arr.display();
 		
-		arr.noDups();
-		
 		System.out.println("Sorted array: ");
 		arr.insertionSort();
 		arr.display();
 		
 		arr.median();
 		
+		arr.noDups();
 	}
 
 }
