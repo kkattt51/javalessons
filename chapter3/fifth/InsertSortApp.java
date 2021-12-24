@@ -1,7 +1,5 @@
 package chapter3.fifth;
 
-import javax.print.attribute.standard.Copies;
-
 class ArrayIns {
 	private long[] a;
 	private int nElems;
@@ -31,27 +29,32 @@ class ArrayIns {
 		
 		for (out = 1; out < nElems; out++) {
 			long temp = a[out];
-			copies++;
+			//copies++;
 			in = out;
 		
-//			if (out != in) {
-//				comparisons++; 
-//			}
-			while (true) {
+			if (out != in) {
+				copies++;
+				//comparisons++; 
+			}
+			while (in > 0) {
 				if (!(in > 0)) {
 					break;
 				}
 				if (!(a[in - 1] >= temp)) {
 					break;
 				}
-				comparisons++;
-				a[in] = a[in - 1];
+				//comparisons++;
 				copies++;
+				a[in] = a[in - 1];
+				//copies++;
+				comparisons++;
 				--in;	
 			}
-			comparisons++;
+			////comparisons++;
+			copies++;
 			a[in] = temp;
 			copies++;
+			comparisons++;
 		}
 		System.out.println("copies " + copies);
 		System.out.println("comparisons " + comparisons);
@@ -79,8 +82,39 @@ public class InsertSortApp {
 		ArrayIns arr;
 		arr = new ArrayIns(maxSize);
 		
-//		arr.insert(00);
+		arr.insert(0);
+		arr.insert(1);
+		arr.insert(2);
+		arr.insert(3);
+		
+		arr.insert(4);
+		arr.insert(5);
+		arr.insert(6);
+		
+		arr.insert(7);
+		arr.insert(8);
+		arr.insert(9);
+		arr.insert(7);
+		
+		arr.insert(11);
+		arr.insert(12);
+		
+		arr.insert(13);
+		arr.insert(14);
+		arr.insert(15);
+		arr.insert(16);
+		arr.insert(17);
+		arr.insert(18);
+		arr.insert(19);
+		arr.insert(13);
+		arr.insert(21);
+		arr.insert(22);
+		arr.insert(23);
+		arr.insert(24);
+		//0 1 2 3 4 5 6 7 8 9 7 11 12 13 14 15 16 17 18 19 13 21 22 23 24
+		
 //		arr.insert(11);
+//		arr.insert(00);
 //		arr.insert(22);
 //		arr.insert(33);
 //		arr.insert(44);
@@ -90,16 +124,17 @@ public class InsertSortApp {
 //		arr.insert(88);
 //		arr.insert(99);
 		
-		arr.insert(77);
-		arr.insert(99);
-		arr.insert(44);
-		arr.insert(55);
-		arr.insert(22);
-		arr.insert(88);
-		arr.insert(11);
-		arr.insert(00);
-		arr.insert(66);
-		arr.insert(33);
+		
+//		arr.insert(77);
+//		arr.insert(99);
+//		arr.insert(44);
+//		arr.insert(55);
+//		arr.insert(22);
+//		arr.insert(88);
+//		arr.insert(11);
+//		arr.insert(00);
+//		arr.insert(66);
+//		arr.insert(33);
 	
 		
 		arr.display();
