@@ -1,4 +1,4 @@
-package chapter4;
+package chapter4.exercises.ex1;
 
 class StackX {
 	private int maxSize;
