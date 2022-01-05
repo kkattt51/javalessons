@@ -110,24 +110,6 @@ public class QueueApp {
         theQueue.insert((long)(Math.random() * maxSize));
         theQueue.insert((long)(Math.random() * maxSize));
         theQueue.displayQueue();
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 }
 
