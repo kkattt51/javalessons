@@ -78,26 +78,32 @@ public class QueueApp {
 		int maxSize = 20;
         int rem = 5;
 		System.out.println("Filling completely the Queue");
+		
         Queue theQueue = new Queue(maxSize);
-        for (int i = 0; i < maxSize; i++)
+        
+        for (int i = 0; i < maxSize; i++) {
         	theQueue.insert((long)(Math.random() * maxSize));
+        }
         theQueue.displayQueue();
         
         System.out.println("Full Queue");
         System.out.println("Removing items...");
-        for (int i = 0; i < rem; i++) 
+        for (int i = 0; i < rem; i++) {
         	theQueue.remove();
+        }
         theQueue.displayQueue();
         
         System.out.println("");
         System.out.println("Inserting items (breaking the sequence)...");
-        for (int i = 0; i < rem / 2; i++) 
+        for (int i = 0; i < rem / 2; i++) {
         	theQueue.insert((long)(Math.random() * maxSize));
+        }
         theQueue.displayQueue();
         
         System.out.println("Leaving only three items...");
-        for (int i = 0; i < rem * 3 - 1 ; i++) 
+        for (int i = 0; i < rem * 3 - 1 ; i++) {
         	theQueue.remove();
+        }
         theQueue.displayQueue();
         
         System.out.println("Inserting items (On new rear position)...");
