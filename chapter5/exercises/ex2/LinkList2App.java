@@ -1,4 +1,4 @@
-package chapter5;
+package chapter5.exercises.ex2;
 
 class Link {
 	public int iData;
@@ -32,10 +32,35 @@ class LinkList {
 		first = newLink;
 	}
 //----------------------------------------------------------------------------------
-	public Link deleteFirst() {
-		Link temp = first;
-		first = first.next;
-		return temp;
+	public Link find(int key) {
+		Link current = first;
+		while (current.iData != key) {
+			if (current.next == null) {
+				return null;
+			} else {
+				current = current.next;
+			}
+		}
+		return current;
+	}
+//----------------------------------------------------------------------------------
+	public Link delete(int key) {
+		Link current = first;
+		Link previous = first;
+		while (current.iData != key) {
+			if (current.next == null) {
+				return null;
+			} else {
+				previous = current;
+				current = current.next;
+			}
+		}
+		if (current == first) {
+			first = first.next;
+		} else {
+			previous.next = current.next;
+		}
+		return current;
 	}
 //----------------------------------------------------------------------------------
 	public void displayList() {
@@ -50,10 +75,11 @@ class LinkList {
 //----------------------------------------------------------------------------------
 }
 
-public class LinkListApp {
+public class LinkList2App {
 
 	public static void main(String[] args) {
 		LinkList theList = new LinkList();
+		
 		theList.insertFirst(22, 22.99);
 		theList.insertFirst(44, 4.99);
 		theList.insertFirst(66, 6.99);
@@ -61,13 +87,20 @@ public class LinkListApp {
 		
 		theList.displayList();
 		
-		while (!theList.isEmpty()) {
-			Link aLink = theList.deleteFirst();
-			System.out.print("Deleted");
-			aLink.displayLink();
-			System.out.println("");
+		Link f = theList.find(44);
+		if (f != null) {
+			System.out.println("Found link with key " + f.iData);
+		} else {
+			System.out.println("Cannot find link");
 		}
+		
+		Link d = theList.delete(66);
+		if (d != null) {
+			System.out.println("Deleted link with key " + d.iData);
+		} else {
+			System.out.println("Cannot delete link");
+		}
+		
 		theList.displayList();
 	}
-
 }
