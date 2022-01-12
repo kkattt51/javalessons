@@ -50,8 +50,7 @@ class ArrayIns {
 	                key++;
 	                dups++;
 	            } else {
-	                a[i] = a[key];
-	                i++;
+	                a[i++] = a[key];
 	                key++; 
 	            }
 	        }
