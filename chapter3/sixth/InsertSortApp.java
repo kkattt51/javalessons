@@ -43,19 +43,31 @@ class ArrayIns {
 		}
 		display();
 		System.out.println("Array without dups:");
-		int key = 0, dups = 0;
-	    for (int i = 0; i < nElems; i++) {
-	        while(key < nElems) {
-	            if(a[key] == -1) {
-	                key++;
-	                dups++;
-	            } else {
-	                a[i++] = a[key];
-	                key++; 
-	            }
-	        }
-	    }
-	    nElems = nElems - dups;
+		int j = -1;
+    	for (int i = 0; i < nElems; i++) {
+    		if(a[i] == -1) {
+    			j = i;
+        	} else {
+        		a[i - (j + 1)] = a[i];
+        	}
+    	}
+    	nElems = nElems - j - 1;
+    	
+//		System.out.println("Array without dups:");
+//		int key = 0, dups = 0;
+//	    for (int i = 0; i < nElems; i++) {
+//	        while(key < nElems) {
+//	            if(a[key] == -1) {
+//	                key++;
+//	                dups++;
+//	            } else {
+//	                a[i++] = a[key];
+//	                //i++;
+//	                key++; 
+//	            }
+//	        }
+//	    }
+//	    nElems = nElems - dups;
 	}
 	
 	public void noDups() {
