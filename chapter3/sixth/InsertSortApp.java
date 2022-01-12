@@ -28,15 +28,35 @@ class ArrayIns {
 			long temp = a[out];
 			in = out;
 			while (in > 0 && temp <= a[in - 1]) {
-			    if(temp == a[in - 1]) temp = -1;
-			    a[in] = a[in - 1];
-
-			    in--;
+			    if(temp == a[in - 1]) {
+			    	temp = -1;
+			    }
+			    if (a[in - 1] > temp) {
+			    	a[in] = a[in - 1];
+				    in--;
+			    }
+			    else {
+					break;
+				}
+			    a[in] = temp;
 			}
-			a[in] = temp;
-			
-			
 		}
+		display();
+		System.out.println("Array without dups:");
+		int key = 0, dups = 0;
+	    for (int i = 0; i < nElems; i++) {
+	        while(key < nElems) {
+	            if(a[key] == -1) {
+	                key++;
+	                dups++;
+	            } else {
+	                a[i] = a[key];
+	                i++;
+	                key++; 
+	            }
+	        }
+	    }
+	    nElems = nElems - dups;
 	}
 	
 	public void noDups() {
@@ -80,8 +100,9 @@ public class InsertSortApp {
 		ArrayIns arr;
 		arr = new ArrayIns(maxSize);
 		
-		arr.insert(77);
+		
 		arr.insert(99);
+		arr.insert(77);
 		arr.insert(44);
 		arr.insert(55);
 		arr.insert(17);
@@ -99,6 +120,7 @@ public class InsertSortApp {
 		
 		System.out.println("Sorted array: ");
 		arr.insertionSort();
+		
 		arr.display();
 		
 		arr.median();
