@@ -20,6 +20,55 @@ class ArrayIns {
 		System.out.println("");
 	}
 	
+	public void insertionSortWithResults() {
+		//This sort algorithm is in the opposite direction than the one without results to show the O(N^2) efficiency 
+	    int in, out, comps = 0, iter = 0, copies = 0;
+
+	    for (out = 1; out < nElems; out++){
+	        long temp = a[out];
+	        copies++;
+	        in = out;                      
+	        while (in > 0 && a[in - 1] <= temp) {
+	            a[in] = a[in - 1];            
+	            --in;
+	            comps += 2;
+	            iter++;
+	            copies++;
+	        }
+	        comps += 2; //once it finishes counts two more because -while- compared to finish
+	        a[in] = temp;
+	        copies++;
+	        iter++;
+	    }  
+	    System.out.println("Comparisons: " + comps);
+	    System.out.println("Iterations: " + iter);
+	    System.out.println("Copies: " + copies);
+	    System.out.println("");
+	}
+	
+	public void nCopies_nComp() {
+	  	int in, out;
+		int nComp = 0;
+		int nCopies = 0;
+		
+		for(out = 1; out < nElems; out++) {
+			long temp = a[out];
+			in = out;
+			nCopies++;
+			
+			while(in > 0 && a[in - 1] >= temp) {
+				a[in] = a[in - 1];
+				nComp++;
+				nCopies++;
+				--in;
+			}
+			nComp++;
+			a[in] = temp;
+			nCopies++;	
+		} 
+		System.out.println("Comp: "+ nComp + " Copies: " +nCopies);
+  	}
+	
 	public void insertionSort() {
 		
 		int in, out;
@@ -82,35 +131,48 @@ public class InsertSortApp {
 		ArrayIns arr;
 		arr = new ArrayIns(maxSize);
 		
-		arr.insert(0);
+		arr.insert(5);
+		arr.insert(4);
+		arr.insert(3);
 		arr.insert(1);
 		arr.insert(2);
-		arr.insert(3);
 		
-		arr.insert(4);
-		arr.insert(5);
-		arr.insert(6);
+//		arr.insert(2);
+//		arr.insert(1);
+//		arr.insert(3);
+//		
+//		arr.insert(4);
+//		arr.insert(5);
 		
-		arr.insert(7);
-		arr.insert(8);
-		arr.insert(9);
-		arr.insert(7);
-		
-		arr.insert(11);
-		arr.insert(12);
-		
-		arr.insert(13);
-		arr.insert(14);
-		arr.insert(15);
-		arr.insert(16);
-		arr.insert(17);
-		arr.insert(18);
-		arr.insert(19);
-		arr.insert(13);
-		arr.insert(21);
-		arr.insert(22);
-		arr.insert(23);
-		arr.insert(24);
+//		arr.insert(0);
+//		arr.insert(1);
+//		arr.insert(2);
+//		arr.insert(3);
+//		
+//		arr.insert(4);
+//		arr.insert(5);
+//		arr.insert(6);
+//		
+//		arr.insert(7);
+//		arr.insert(8);
+//		arr.insert(9);
+//		arr.insert(7);
+//		
+//		arr.insert(11);
+//		arr.insert(12);
+//		
+//		arr.insert(13);
+//		arr.insert(14);
+//		arr.insert(15);
+//		arr.insert(16);
+//		arr.insert(17);
+//		arr.insert(18);
+//		arr.insert(19);
+//		arr.insert(13);
+//		arr.insert(21);
+//		arr.insert(22);
+//		arr.insert(23);
+//		arr.insert(24);
 		//0 1 2 3 4 5 6 7 8 9 7 11 12 13 14 15 16 17 18 19 13 21 22 23 24
 		
 //		arr.insert(11);
@@ -123,8 +185,8 @@ public class InsertSortApp {
 //		arr.insert(77);
 //		arr.insert(88);
 //		arr.insert(99);
-		
-		
+//		
+//		
 //		arr.insert(77);
 //		arr.insert(99);
 //		arr.insert(44);
@@ -139,8 +201,10 @@ public class InsertSortApp {
 		
 		arr.display();
 		//arr.median();
-		
 		arr.insertionSort();
+		//arr.insertionSortWithResults();
+		//arr.nCopies_nComp();
+		
 		arr.display();
 	}
 
