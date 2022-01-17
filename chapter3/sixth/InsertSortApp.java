@@ -22,157 +22,80 @@ class ArrayIns {
 	}
 	
 	public void insertionSort() {
-//		int in, out;
-//		
-//		for (out = 1; out < nElems; out++) {
-//			long temp = a[out];
-//			in = out;
-//			while (in > 0 && temp <= a[in - 1]) {
-//			    if(temp == a[in - 1]) {
-//			    	temp = -1;
-//			    }
-//			    if (a[in - 1] > temp) {
-//			    	a[in] = a[in - 1];
-//				    in--;
-//			    }
-//			    else {
-//					break;
-//				}
-//			    a[in] = temp;
-//			}
-//		}
-//		int in, out;
-//		int lastNeg = -1;
-//		int dupsCount = 0;
-//		for (out = 1; out < nElems; out++) {
-//			long temp = a[out];
-//			in = out;
-//			while (in > 0 && temp <= a[in - 1]) {
-//			    if(temp == a[in - 1]) {
-//			    	temp = -10;
-//			    	lastNeg = in;
-//			    	
-//			    	dupsCount++;
-//			    } 
-//			    if (a[in - 1] > temp) {
-//			    	a[in] = a[in - 1];
-//				    in--;
-////			    	a[in - (lastNeg + 1)] = a[in];
-////					in--;
-//				} else {
-//					break;
-//				}
-//			    
-////			    if (a[in - 1] > temp) {
-////			    	a[in] = a[in - 1];
-////				    in--;   
-////			    }
-//			    a[in] = temp; 
-//			    for (int i = 0; i < nElems; i++) {
-//					a[i] = a[lastNeg + 1];
-//					
-//				}
-//			    nElems= nElems - lastNeg;
-//			}	
-//			//nElems = lastNeg - dupsCount;
-//		}
-//		int in, out;
-//		int nDups = 0;
-//	
-//		for (out = 1; out < nElems; out++) {
-//			long temp = a[out];
-//		  	in = out;
-//		  	while(in > 0 && a[in - 1] >= temp) {
-//		  		if (a[in - 1] == temp) {
-//					temp = -2;
-//					nDups++;
-//				}
-//		  		if (a[in - 1] >= temp) {
-//		  			a[in] = a[in - 1];
-//		  			--in;
-//		  		} else {
-//					break;
-//				}
-//		  	}	
-//		  	a[in] = temp;
-//		}
 		int in, out;
 		int nDups = 0;
 		int j = -1;
+		
 		for (out = 1; out < nElems; out++) {
 			long temp = a[out];
 			in = out;
+			
 			if (out != in) {
-				nDups++; 
+				nDups++;
 			}
 			while (in > 0) {
 				if (!(in > 0)) {
 					break;
 				}
 				if (!(a[in - 1] >= temp)) {
-					break;
+					break;	
 				}
 				if (a[in - 1] == temp) {
-					temp = -2;
-					if (a[in - 1] == - 2) {
-						j = in;
-						nDups++;
-						j++;
-					}
+					temp = -10;
 				}
 				a[in] = a[in - 1];
-				--in;	
+				--in;
 			}
-			//copies++;
 			a[in] = temp;
-			
+			if (temp == -10) {
+				nDups++;
+				j++;
+			}
 		}
 		display();
-		
+			
 		System.out.println("lastNegative: " + j);
 		System.out.println("Dups count: " + nDups);
-		//int j = -1;
+		System.out.println("Array without dups:");
 		if (nDups != 0) {
 		   for (int i = nDups; i < nElems; i++) {
 				a[i - nDups] = a[i];
 			}
 		}
 		nElems -= nDups;
-		
-		//System.out.println("lastNegative: " + lastNeg);
-		//System.out.println("Dups count:" + dupsCount);
-		//display();
-		
-//		System.out.println("Array without dups:");
-//		int j = -1;
-//    	for (int i = 0; i < nElems; i++) {
-//    		if(a[i] == -10) {
-//    			j = i;
-//        	} else {
-//        		a[i - (j + 1)] = a[i];
-//        	}
-//    	}
-//    	nElems = nElems - j - 1;
-//    	System.out.println("lastNegative:" + j);
-		
-		//System.out.println("Dups count:" +);
-//		System.out.println("Array without dups:");
-//		int key = 0, dups = 0;
-//	    for (int i = 0; i < nElems; i++) {
-//	        while(key < nElems) {
-//	            if(a[key] == -10) {
-//	                key++;
-//	                dups++;
-//	            } else {
-//	                a[i++] = a[key];
-//	                //i++;
-//	                key++; 
-//	            }
-//	        }
-//	    }
-//	    nElems = nElems - dups;
-//	    System.out.println("lastNegativeKey: " + key);
-//		System.out.println("Dups count dups: " + dups);
+			
+			
+			
+			
+			//int j = -1;
+//	    	for (int i = 0; i < nElems; i++) {
+//	    		if(a[i] == -10) {
+//	    			j = i;
+//	        	} else {
+//	        		a[i - (j + 1)] = a[i];
+//	        	}
+//	    	}
+//	    	nElems = nElems - j - 1;
+//	    	System.out.println("lastNegative:" + j);
+			
+			//System.out.println("Dups count:" +);
+//			System.out.println("Array without dups:");
+//			int key = 0, dups = 0;
+//		    for (int i = 0; i < nElems; i++) {
+//		        while(key < nElems) {
+//		            if(a[key] == -10) {
+//		                key++;
+//		                dups++;
+//		            } else {
+//		                a[i++] = a[key];
+//		                //i++;
+//		                key++;
+//		            }
+//		        }
+//		    }
+//		    nElems = nElems - dups;
+//		    System.out.println("lastNegativeKey: " + key);
+//			System.out.println("Dups count dups: " + dups);
 	}
 	
 	public void noDups() {
@@ -231,6 +154,7 @@ public class InsertSortApp {
 		arr.insert(66);
 		arr.insert(17);
 		arr.insert(33);
+		arr.insert(22);
 		
 		arr.display();
 		
