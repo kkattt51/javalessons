@@ -1,7 +1,5 @@
 package chapter5.exercises.ex9;
 
-import java.io.*;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -91,8 +89,8 @@ class ListIterator {
 		} else {
 			newLink.next = current.next;
 			current.next = newLink;
+			nextLink();
 		}
-		nextLink();
 	}
 //----------------------------------------------------------------------------------	
 	public void insertBefore(long dd) {
@@ -137,8 +135,8 @@ public class InterIterApp {
 		
 		iter1.insertAfter(20);
 		iter1.insertAfter(40);
-		iter1.insertAfter(80);
 		iter1.insertAfter(60);
+		iter1.insertAfter(80);
 		
 		while (true) {
 			System.out.print("Enter first letter of show, reset, ");
@@ -174,13 +172,13 @@ public class InterIterApp {
 				case 'b':
 					System.out.print("Enter value to insert: ");
 					System.out.flush();
-					value.getInt();
+					value = getInt();
 					iter1.insertBefore(value);
 					break;
 				case 'a':
 					System.out.print("Enter value to insert: ");
 					System.out.flush();
-					value.getInt();
+					value = getInt();
 					iter1.insertAfter(value);
 					break;
 				case 'd':
