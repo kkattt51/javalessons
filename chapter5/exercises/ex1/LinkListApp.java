@@ -58,6 +58,7 @@ public class LinkListApp {
 		theList.insertFirst(44, 4.99);
 		theList.insertFirst(66, 6.99);
 		theList.insertFirst(88, 8.99);
+		theList.insertFirst(55, 5.99);
 		
 		theList.displayList();
 		
